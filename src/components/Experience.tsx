@@ -70,7 +70,7 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="py-20 bg-white relative overflow-hidden" ref={sectionRef}>
+    <section id="experience" className="pt-24 pb-20 md:py-20 bg-white relative overflow-hidden" ref={sectionRef}>
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-gradient-to-br from-purple-500/5 to-pink-500/5 rounded-full blur-3xl"></div>
@@ -90,25 +90,25 @@ const Experience = () => {
         </div>
 
         <div className="relative" ref={timelineRef}>
-          {/* Timeline Line */}
-          <div className={`absolute left-8 md:left-1/2 transform md:-translate-x-px h-full w-1 bg-gradient-to-b from-purple-500 via-pink-500 to-cyan-500 rounded-full shadow-lg transition-all duration-1000 ${
+          {/* Timeline Line - Hidden on mobile, visible on desktop */}
+          <div className={`hidden md:block absolute left-1/2 transform -translate-x-px h-full w-1 bg-gradient-to-b from-purple-500 via-pink-500 to-cyan-500 rounded-full shadow-lg transition-all duration-1000 ${
             timelineVisible ? 'opacity-100' : 'opacity-0'
           }`}></div>
 
           {/* Experience Items */}
-          <div className="space-y-16">
+          <div className="space-y-8 md:space-y-16">
             {experiences.map((exp, index) => (
               <div key={index} className={`relative flex items-start ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} transition-all duration-1000 ${
                 sectionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`} style={{ transitionDelay: `${400 + index * 200}ms` }}>
-                {/* Timeline Dot */}
-                <div className={`absolute left-8 md:left-1/2 transform -translate-x-1/2 w-6 h-6 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full border-4 border-white shadow-xl z-20 transition-all duration-1000 ${
+                {/* Timeline Dot - Hidden on mobile, visible on desktop */}
+                <div className={`hidden md:block absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full border-4 border-white shadow-xl z-20 transition-all duration-1000 ${
                   sectionVisible ? 'scale-100 opacity-100' : 'scale-0 opacity-0'
                 }`} style={{ transitionDelay: `${600 + index * 200}ms` }}></div>
 
-                {/* Content Card */}
-                <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'md:pr-12 ml-20 md:ml-0' : 'md:pl-12 ml-20 md:ml-0'}`}>
-                  <div className="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-purple-200 group relative overflow-hidden">
+                {/* Content Card - Full width on mobile, half width on desktop */}
+                <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'}`}>
+                  <div className="bg-white p-6 md:p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-purple-200 group relative overflow-hidden">
                     {/* Card Background Gradient */}
                     <div className="absolute inset-0 bg-gradient-to-br from-purple-50/50 to-pink-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     

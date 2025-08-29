@@ -6,9 +6,9 @@ const Projects = () => {
   const [selectedProject, setSelectedProject] = useState<any>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const { ref: sectionRef, isVisible: sectionVisible } = useScrollAnimation(0.2);
-  const { ref: projectsRef, isVisible: projectsVisible } = useScrollAnimation(0.3);
-  const { ref: ctaRef, isVisible: ctaVisible } = useScrollAnimation(0.4);
+  const { ref: sectionRef, isVisible: sectionVisible } = useScrollAnimation(0.1);
+  const { ref: projectsRef, isVisible: projectsVisible } = useScrollAnimation(0.15);
+  const { ref: ctaRef, isVisible: ctaVisible } = useScrollAnimation(0.2);
 
   const projects = [
     {
@@ -146,7 +146,7 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="py-20 bg-white relative overflow-hidden" ref={sectionRef}>
+    <section id="projects" className="pt-24 pb-20 md:py-20 bg-white relative overflow-hidden" ref={sectionRef}>
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-br from-purple-500/5 to-pink-500/5 rounded-full blur-3xl"></div>

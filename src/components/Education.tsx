@@ -38,7 +38,7 @@ const Education = () => {
   ];
 
   return (
-    <section id="education" className="py-20 bg-gray-50 relative overflow-hidden" ref={sectionRef}>
+    <section id="education" className="pt-24 pb-20 md:py-20 bg-gray-50 relative overflow-hidden" ref={sectionRef}>
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-gradient-to-br from-purple-500/5 to-pink-500/5 rounded-full blur-3xl"></div>
