@@ -1,10 +1,7 @@
 import React from 'react';
 import { Briefcase, Calendar, MapPin, ExternalLink } from 'lucide-react';
-import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const Experience = () => {
-  const { ref: sectionRef, isVisible: sectionVisible } = useScrollAnimation(0.1);
-  const { ref: timelineRef, isVisible: timelineVisible } = useScrollAnimation(0.2);
 
   const experiences = [
     {
@@ -70,7 +67,7 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="pt-24 pb-20 md:py-20 bg-white relative overflow-hidden" ref={sectionRef}>
+    <section id="experience" className="pt-24 pb-20 md:py-20 bg-white relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-gradient-to-br from-purple-500/5 to-pink-500/5 rounded-full blur-3xl"></div>
@@ -78,9 +75,7 @@ const Experience = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className={`text-center mb-16 transition-all duration-1000 ${
-          sectionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-        }`}>
+        <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Work <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Experience</span>
           </h2>
@@ -89,22 +84,16 @@ const Experience = () => {
           </p>
         </div>
 
-        <div className="relative" ref={timelineRef}>
+        <div className="relative">
           {/* Timeline Line - Hidden on mobile, visible on desktop */}
-          <div className={`hidden md:block absolute left-1/2 transform -translate-x-px h-full w-1 bg-gradient-to-b from-purple-500 via-pink-500 to-cyan-500 rounded-full shadow-lg transition-all duration-1000 ${
-            timelineVisible ? 'opacity-100' : 'opacity-0'
-          }`}></div>
+          <div className="hidden md:block absolute left-1/2 transform -translate-x-px h-full w-1 bg-gradient-to-b from-purple-500 via-pink-500 to-cyan-500 rounded-full shadow-lg"></div>
 
           {/* Experience Items */}
           <div className="space-y-8 md:space-y-16">
             {experiences.map((exp, index) => (
-              <div key={index} className={`relative flex items-start ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} transition-all duration-1000 ${
-                sectionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`} style={{ transitionDelay: `${400 + index * 200}ms` }}>
+              <div key={index} className={`relative flex items-start ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
                 {/* Timeline Dot - Hidden on mobile, visible on desktop */}
-                <div className={`hidden md:block absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full border-4 border-white shadow-xl z-20 transition-all duration-1000 ${
-                  sectionVisible ? 'scale-100 opacity-100' : 'scale-0 opacity-0'
-                }`} style={{ transitionDelay: `${600 + index * 200}ms` }}></div>
+                <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full border-4 border-white shadow-xl z-20"></div>
 
                 {/* Content Card - Full width on mobile, half width on desktop */}
                 <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'}`}>
@@ -160,9 +149,7 @@ const Experience = () => {
                 </div>
 
                 {/* Timeline Year Badge */}
-                <div className={`hidden md:block absolute top-0 ${index % 2 === 0 ? 'right-0 mr-4' : 'left-0 ml-4'} transform ${index % 2 === 0 ? 'translate-x-full' : '-translate-x-full'} transition-all duration-1000 ${
-                  sectionVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
-                }`} style={{ transitionDelay: `${800 + index * 200}ms` }}>
+                <div className={`hidden md:block absolute top-0 ${index % 2 === 0 ? 'right-0 mr-4' : 'left-0 ml-4'} transform ${index % 2 === 0 ? 'translate-x-full' : '-translate-x-full'}`}>
                   <div className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
                     {exp.period.split(' - ')[0]}
                   </div>

@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
 import { Github, ExternalLink, Star, Eye, Code, Zap, Users, X } from 'lucide-react';
-import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState<any>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const { ref: sectionRef, isVisible: sectionVisible } = useScrollAnimation(0.1);
-  const { ref: projectsRef, isVisible: projectsVisible } = useScrollAnimation(0.15);
-  const { ref: ctaRef, isVisible: ctaVisible } = useScrollAnimation(0.2);
+
 
   const projects = [
     {
@@ -146,7 +143,7 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="pt-24 pb-20 md:py-20 bg-white relative overflow-hidden" ref={sectionRef}>
+    <section id="projects" className="pt-24 pb-20 md:py-20 bg-white relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-br from-purple-500/5 to-pink-500/5 rounded-full blur-3xl"></div>
@@ -154,9 +151,7 @@ const Projects = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className={`text-center mb-16 transition-all duration-1000 ${
-          sectionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-        }`}>
+        <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Featured <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Projects</span>
           </h2>
@@ -165,14 +160,11 @@ const Projects = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12" ref={projectsRef}>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {projects.map((project, index) => (
             <div 
               key={index} 
-              className={`bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-700 overflow-hidden group hover:-translate-y-3 border border-gray-100 hover:border-purple-200 cursor-pointer ${
-                projectsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`}
-              style={{ transitionDelay: `${300 + index * 100}ms` }}
+              className="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-700 overflow-hidden group hover:-translate-y-3 border border-gray-100 hover:border-purple-200 cursor-pointer"
               onClick={() => openModal(project)}
             >
               <div className="relative overflow-hidden">
@@ -281,10 +273,8 @@ const Projects = () => {
         </div>
 
         {/* Call to Action */}
-        <div className="text-center" ref={ctaRef}>
-          <div className={`transition-all duration-1000 delay-500 ${
-            ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}>
+        <div className="text-center">
+          <div>
             <div className="bg-gradient-to-r from-purple-500 via-pink-500 to-cyan-500 p-1 rounded-2xl inline-block">
               <div className="bg-white p-8 rounded-xl">
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">Interested in My Work?</h3>

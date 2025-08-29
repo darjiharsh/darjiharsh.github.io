@@ -1,10 +1,7 @@
 import React from 'react';
 import { GraduationCap, Calendar, MapPin, Award } from 'lucide-react';
-import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const Education = () => {
-  const { ref: sectionRef, isVisible: sectionVisible } = useScrollAnimation(0.2);
-  const { ref: cardsRef, isVisible: cardsVisible } = useScrollAnimation(0.3);
 
   const education = [
     {
@@ -38,7 +35,7 @@ const Education = () => {
   ];
 
   return (
-    <section id="education" className="pt-24 pb-20 md:py-20 bg-gray-50 relative overflow-hidden" ref={sectionRef}>
+    <section id="education" className="pt-24 pb-20 md:py-20 bg-gray-50 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-gradient-to-br from-purple-500/5 to-pink-500/5 rounded-full blur-3xl"></div>
@@ -46,9 +43,7 @@ const Education = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className={`text-center mb-16 transition-all duration-1000 ${
-          sectionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-        }`}>
+        <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Education</span>
           </h2>
@@ -57,14 +52,11 @@ const Education = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8" ref={cardsRef}>
+        <div className="grid md:grid-cols-2 gap-8">
           {education.map((edu, index) => (
             <div 
               key={index} 
-              className={`bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-700 group hover:-translate-y-2 border border-gray-100 hover:border-purple-200 relative overflow-hidden ${
-                cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`}
-              style={{ transitionDelay: `${400 + index * 200}ms` }}
+              className="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-700 group hover:-translate-y-2 border border-gray-100 hover:border-purple-200 relative overflow-hidden"
             >
               {/* Card Background Gradient */}
               <div className="absolute inset-0 bg-gradient-to-br from-purple-50/30 to-pink-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
