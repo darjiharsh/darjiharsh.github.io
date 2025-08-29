@@ -37,7 +37,7 @@ const About = () => {
               <div className="w-80 h-80 mx-auto bg-gradient-to-br from-purple-500 via-pink-500 to-cyan-500 rounded-full p-1">
                 <div className="w-full h-full bg-white rounded-full overflow-hidden">
                   <img 
-                    src="/src/assets/portfolio-img.png" 
+                    src="/images/portfolio-img.png" 
                     alt="Portfolio Image" 
                     className="w-full h-full object-cover"
                   />

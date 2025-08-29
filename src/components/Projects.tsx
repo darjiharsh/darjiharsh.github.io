@@ -14,7 +14,7 @@ const Projects = () => {
     {
       title: 'JSN GlowAlert',
       description: 'Advanced Magento 2 extension that replaces default notifications with beautiful SweetAlert2 animations. Features conditional JavaScript loading, multiselect admin configuration, and AJAX integration for seamless cart operations.',
-      image: '/src/assets/magento-original.svg',
+      image: '/images/magento-original.svg',
       technologies: ['Magento 2', 'PHP', 'JavaScript', 'jQuery', 'SweetAlert2', 'XML', 'AJAX'],
       github: 'https://github.com/darjiharsh/JSN-GlowAlert',
       demo: '#',
@@ -38,7 +38,7 @@ const Projects = () => {
     {
       title: 'Coffee Recipe Mobile App',
       description: 'React Native application with Firebase backend featuring user authentication, recipe sharing, post engagement system, and real-time data management. Includes social features and community-driven content.',
-      image: '/src/assets/react-original.svg',
+      image: '/images/react-original.svg',
       technologies: ['React Native', 'Material UI', 'Expo', 'Redux', 'Firebase', 'React Native Paper'],
       github: 'https://github.com/darjiharsh/Coffee-Recipe',
       demo: '#',
@@ -62,7 +62,7 @@ const Projects = () => {
     {
       title: 'Virtual Cook App',
       description: 'Interactive cooking app with text-to-speech functionality, recipe filtering, multi-language support (English/French), and unique features like phone shake for random recipes and app customization.',
-      image: '/src/assets/react-original.svg',
+      image: '/images/react-original.svg',
       technologies: ['React Native', 'Material UI', 'Expo', 'Redux', 'Expo-speech', 'Expo-sharing'],
       github: 'https://github.com/darjiharsh/virtual-cook',
       demo: '#',
@@ -86,7 +86,7 @@ const Projects = () => {
     {
       title: 'Recruitment System',
       description: 'Custom Magento 2 recruitment module with multi-language support, responsive Tailwind CSS design, AJAX form submission, and comprehensive admin management with custom grids and configuration panels.',
-      image: '/src/assets/magento-original.svg',
+      image: '/images/magento-original.svg',
       technologies: ['Magento 2', 'PHP', 'Tailwind CSS', 'AJAX', 'JavaScript', 'XML', 'MySQL'],
       github: 'https://github.com/darjiharsh/recruitment-system',
       demo: '#',
@@ -110,7 +110,7 @@ const Projects = () => {
     {
       title: 'Category Collection Module',
       description: 'Magento 2 module showcasing subcategories with images on product list pages. Implements MVVM architecture, custom category attributes, and enhanced catalog functionality with Block and Helper classes.',
-      image: '/src/assets/magento-original.svg',
+      image: '/images/magento-original.svg',
       technologies: ['Magento 2', 'XML', 'MVVM', 'PHTML', 'MySQL', 'KnockoutJS', 'jQuery'],
       github: 'https://github.com/darjiharsh/Category-collection',
       demo: '#',
@@ -179,7 +179,7 @@ const Projects = () => {
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-56 object-fill group-hover:scale-110 transition-transform duration-700"
+                  className="w-full h-56 object-cover object-center group-hover:scale-110 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 
