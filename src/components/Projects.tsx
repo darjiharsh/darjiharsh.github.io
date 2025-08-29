@@ -320,7 +320,7 @@ const Projects = () => {
                 {/* Close button */}
                 <button
                   onClick={closeModal}
-                  className="absolute top-4 right-4 z-10 p-2 bg-white/20 backdrop-blur-md rounded-full text-white hover:bg-white/30 transition-all duration-300 transform hover:scale-110 shadow-lg"
+                  className="absolute top-4 right-4 z-10 p-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-sm font-semibold rounded-full shadow-lg hover:from-purple-600 hover:to-pink-600 transition-all duration-300 transform hover:scale-110"
                 >
                   <X size={24} />
                 </button>
@@ -330,7 +330,7 @@ const Projects = () => {
                   <img
                     src={selectedProject.image}
                     alt={selectedProject.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-fill"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
                   <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6">
