@@ -3,7 +3,7 @@ import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-24 sm:pt-20 md:pt-0">
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-32 sm:pt-28 md:pt-0">
       <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900"></div>
       <div className="absolute inset-0 bg-gradient-to-tr from-pink-500/10 via-purple-500/10 to-cyan-500/10"></div>
       
@@ -15,7 +15,7 @@ const Hero = () => {
       </div>
 
       <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-4xl mx-auto mt-0 lg:mt-24">
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 animate-fade-in">
             Hi, I'm{' '}
             <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
@@ -24,12 +24,15 @@ const Hero = () => {
           </h1>
           
           <p className="text-xl md:text-2xl text-gray-300 mb-8 animate-fade-in-delay">
-            Adobe Commerce (Magento) Developer & Full Stack Engineer
+            Full Stack Developer | Magento Developer | Agile and Scrum Methodology
           </p>
           
           <p className="text-lg text-gray-400 mb-12 max-w-2xl mx-auto animate-fade-in-delay-2">
-            Specialized in delivering scalable, secure, and high-performance e-commerce platforms. 
-            Expert in Magento 2, custom module development, and API integrations with a passion for optimization.
+            
+            Results-driven Full Stack Developer and Adobe Commerce Specialist with 5+ years of experience building scalable, secure, and performant mobile and web applications.
+            <br />
+            Expert in Magento 2, TypeScript and React frameworks with deep knowledge of backend development, micro front-end architecture and responsive mobile-first design. 
+            Proven track record of optimizing CI/CD pipelines, enhancing accessibility, and delivering seamless cross-device experiences. 
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-fade-in-delay-3">

@@ -24,8 +24,7 @@ const Footer = () => {
               </span>
             </h3>
             <p className="text-gray-400 mb-4 max-w-md">
-              Adobe Commerce (Magento) Developer passionate about creating scalable e-commerce solutions 
-              that drive business growth. Let's build something amazing together.
+              Full Stack Developer and Adobe Commerce (Magento) Developer passionate about creating scalable e-commerce solutions and driving business growth. Let's build something amazing together.
             </p>
             <div className="flex items-center text-gray-400">
               <span>Made with</span>
