@@ -138,7 +138,7 @@ const Skills = () => {
               ].map((tech, index) => (
                 <span 
                   key={index} 
-                  className="px-6 py-3 bg-white text-gray-700 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border border-gray-200 hover:border-purple-300 hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50 font-medium"
+                  className="px-6 py-3 bg-white text-xs md:text-base text-gray-700 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border border-gray-200 hover:border-purple-300 hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50 font-medium"
                   style={{ animationDelay: `${600 + index * 50}ms` }}
                 >
                   {tech}
