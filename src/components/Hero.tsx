@@ -23,11 +23,11 @@ const Hero = () => {
             </span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-gray-300 mb-8 animate-fade-in-delay">
+          <p className="text-xl md:text-2xl text-gray-300 mb-8">
             Full Stack Developer | Magento Developer | Agile and Scrum Methodology
           </p>
           
-          <p className="text-lg text-gray-400 mb-12 max-w-2xl mx-auto animate-fade-in-delay-2">
+          <p className="text-lg text-gray-400 mb-12 max-w-2xl mx-auto">
             
             Results-driven Full Stack Developer and Adobe Commerce Specialist with 5+ years of experience building scalable, secure, and performant mobile and web applications.
             <br />
@@ -35,7 +35,7 @@ const Hero = () => {
             Proven track record of optimizing CI/CD pipelines, enhancing accessibility, and delivering seamless cross-device experiences. 
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-fade-in-delay-3">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <a 
               href="/resume/Harsh-Darji-CV.pdf" 
               download="Harsh-Darji-CV.pdf"
@@ -48,7 +48,7 @@ const Hero = () => {
             </a>
           </div>
 
-          <div className="flex justify-center space-x-6 mb-12 animate-fade-in-delay-4">
+          <div className="flex justify-center space-x-6 mb-12">
             <a href="https://github.com/darjiharsh" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transform hover:scale-110 transition-all duration-300">
               <Github size={28} />
             </a>
