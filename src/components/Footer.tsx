@@ -1,7 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Heart, ArrowUp } from 'lucide-react';
 
 const Footer = () => {
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      
+      // Show floating button when scrolling down (after 300px) but hide when near footer
+      const isNearFooter = scrollY + windowHeight > documentHeight - 200; // 200px from bottom
+      const shouldShow = scrollY > 300 && !isNearFooter;
+      
+      setShowScrollTop(shouldShow);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -76,6 +95,19 @@ const Footer = () => {
           </button>
         </div>
       </div>
+
+      {/* Floating Scroll to Top Button - Mobile Only */}
+      {showScrollTop && (
+        <div className="md:hidden fixed bottom-6 right-6 z-50 animate-fade-in">
+          <button
+            onClick={scrollToTop}
+            className="p-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full text-white shadow-lg hover:from-purple-600 hover:to-pink-600 transition-all duration-300 transform hover:scale-110"
+            aria-label="Scroll to top"
+          >
+            <ArrowUp size={24} />
+          </button>
+        </div>
+      )}
     </footer>
   );
 };
