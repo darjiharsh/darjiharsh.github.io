@@ -160,14 +160,16 @@ const Projects = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 ">
           {projects.map((project, index) => (
             <div 
               key={index} 
-              className="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-700 overflow-hidden group hover:-translate-y-3 border border-gray-100 hover:border-purple-200 cursor-pointer"
+              className="relative rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-700 overflow-hidden group hover:-translate-y-3 cursor-pointer p-1 md:p-0 bg-gradient-to-r from-purple-500 via-pink-500 to-cyan-500 md:bg-transparent"
               onClick={() => openModal(project)}
             >
-              <div className="relative overflow-hidden">
+              {/* Content Container */}
+              <div className="relative z-10 bg-white rounded-2xl h-full">
+                <div className="relative overflow-hidden">
                 <img
                   src={project.image}
                   alt={project.title}
@@ -260,7 +262,6 @@ const Projects = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex-1 text-center py-3 px-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-xl hover:from-purple-600 hover:to-pink-600 transition-all duration-300 transform hover:scale-105 font-medium flex items-center justify-center"
-                      onClick={(e) => e.stopPropagation()}
                     >
                       <ExternalLink size={16} className="mr-2" />
                       Demo
@@ -268,6 +269,7 @@ const Projects = () => {
                   )}
                 </div>
               </div>
+            </div>
             </div>
           ))}
         </div>
