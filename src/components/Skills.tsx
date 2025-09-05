@@ -1,7 +1,8 @@
-import React from 'react';
-import { Code, ExternalLink, Database, Globe, Smartphone, Server, Palette, Cloud, Shield } from 'lucide-react';
+import React, { useState } from 'react';
+import { Code, ExternalLink, Database, Globe, Smartphone, Server, Palette, Cloud, Shield, ChevronDown, ChevronUp } from 'lucide-react';
 
 const Skills = () => {
+  const [expandedCards, setExpandedCards] = useState<{ [key: number]: boolean }>({});
 
   const skillCategories = [
     {
@@ -11,7 +12,11 @@ const Skills = () => {
         { name: 'Magento 2.4+', level: 95 },
         { name: 'Custom Extensions', level: 92 },
         { name: 'Third-Party Integration', level: 90 },
-        { name: 'KnockoutJS', level: 88 }
+        { name: 'KnockoutJS', level: 88 },
+        { name: 'Adobe Commerce Cloud', level: 85 },
+        { name: 'Magento PWA Studio', level: 82 },
+        { name: 'Adobe I/O Events', level: 80 },
+        { name: 'Adobe Commerce APIs', level: 88 }
       ]
     },
     {
@@ -21,7 +26,10 @@ const Skills = () => {
         { name: 'PHP', level: 95 },
         { name: 'Laravel', level: 85 },
         { name: 'ExpressJS', level: 82 },
-        { name: 'Java', level: 80 }
+        { name: 'Java', level: 80 },
+        { name: 'Node.js', level: 88 },
+        { name: 'WordPress', level: 75 },
+        { name: 'Spring Boot', level: 78 }
       ]
     },
     {
@@ -29,9 +37,13 @@ const Skills = () => {
       icon: <Palette className="text-green-500" size={32} />,
       skills: [
         { name: 'React', level: 90 },
-        { name: 'JavaScript', level: 92 },
+        { name: 'TypeScript', level: 85 },
         { name: 'Tailwind CSS', level: 88 },
-        { name: 'HTML5/CSS3', level: 95 }
+        { name: 'JavaScript', level: 92 },
+        { name: 'Vue.js', level: 80 },
+        { name: 'Next.js', level: 82 },
+        { name: 'SASS/SCSS', level: 88 },
+        { name: 'HTML5/CSS3', level: 95 },
       ]
     },
     {
@@ -41,7 +53,10 @@ const Skills = () => {
         { name: 'REST APIs', level: 95 },
         { name: 'GraphQL', level: 88 },
         { name: 'Payment Gateways', level: 90 },
-        { name: 'CRM/ERP Integration', level: 85 }
+        { name: 'CRM/ERP Integration', level: 85 },
+        { name: 'Webhook Development', level: 87 },
+        { name: 'API Documentation', level: 90 },
+        { name: 'Postman', level: 88 }
       ]
     },
     {
@@ -51,7 +66,9 @@ const Skills = () => {
         { name: 'MySQL', level: 92 },
         { name: 'MongoDB', level: 85 },
         { name: 'Firebase', level: 88 },
-        { name: 'AWS Services', level: 82 }
+        { name: 'AWS Services', level: 82 },
+        { name: 'PostgreSQL', level: 80 },
+        { name: 'Elasticsearch', level: 70 }
       ]
     },
     {
@@ -61,10 +78,19 @@ const Skills = () => {
         { name: 'Docker', level: 85 },
         { name: 'Jenkins CI/CD', level: 88 },
         { name: 'Git', level: 95 },
-        { name: 'AWS Lambda', level: 80 }
+        { name: 'AWS Lambda', level: 80 },
+        { name: 'GitHub Actions', level: 82 },
+        { name: 'Monitoring & Logging', level: 78 }
       ]
     }
   ];
+
+  const toggleExpanded = (index: number) => {
+    setExpandedCards(prev => ({
+      ...prev,
+      [index]: !prev[index]
+    }));
+  };
 
   const SkillBar = ({ skill }: { skill: { name: string; level: number } }) => (
     <div className="mb-4 group">
@@ -99,31 +125,70 @@ const Skills = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {skillCategories.map((category, index) => (
-            <div 
-              key={index} 
-              className="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-700 group hover:-translate-y-3 border border-gray-100 hover:border-purple-200 relative overflow-hidden"
-            >
-              {/* Card Background Gradient */}
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-50/30 to-pink-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              
-              <div className="relative z-10">
-                <div className="flex items-center mb-8">
-                  <div className="p-4 bg-gradient-to-r from-gray-100 to-gray-50 rounded-xl mr-4 group-hover:bg-gradient-to-r group-hover:from-purple-100 group-hover:to-pink-100 group-hover:scale-110 transition-all duration-300 shadow-lg">
-                    {category.icon}
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900 group-hover:text-purple-700 transition-colors duration-300">{category.title}</h3>
-                </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16 items-start">
+          {skillCategories.map((category, index) => {
+            const isExpanded = expandedCards[index];
+            const visibleSkills = isExpanded ? category.skills : category.skills.slice(0, 4);
+            const hasMoreSkills = category.skills.length > 4;
+            
+            return (
+              <div 
+                key={index} 
+                className="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-700 group hover:-translate-y-3 border border-gray-100 hover:border-purple-200 relative overflow-hidden h-fit"
+              >
+                {/* Card Background Gradient */}
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-50/30 to-pink-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 
-                <div className="space-y-4">
-                  {category.skills.map((skill, skillIndex) => (
-                    <SkillBar key={skillIndex} skill={skill} />
-                  ))}
+                <div className="relative z-10">
+                  <div className="flex items-center mb-8">
+                    <div className="p-4 bg-gradient-to-r from-gray-100 to-gray-50 rounded-xl mr-4 group-hover:bg-gradient-to-r group-hover:from-purple-100 group-hover:to-pink-100 group-hover:scale-110 transition-all duration-300 shadow-lg">
+                      {category.icon}
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 group-hover:text-purple-700 transition-colors duration-300">{category.title}</h3>
+                  </div>
+                  
+                  <div className="space-y-4">
+                    {visibleSkills.map((skill, skillIndex) => (
+                      <div 
+                        key={skillIndex} 
+                        className={`transition-all duration-300 ease-in-out ${
+                          isExpanded ? 'opacity-100 transform translate-y-0' : 'opacity-100 transform translate-y-0'
+                        }`}
+                        style={{ 
+                          animationDelay: isExpanded ? `${skillIndex * 50}ms` : '0ms' 
+                        }}
+                      >
+                        <SkillBar skill={skill} />
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* View More/Less Text */}
+                  {hasMoreSkills && (
+                    <div className="mt-6 text-center">
+                      <span
+                        onClick={() => toggleExpanded(index)}
+                        className={`inline-flex items-center space-x-2 cursor-pointer font-medium transition-all duration-300 hover:scale-105 group ${
+                          isExpanded 
+                            ? 'text-gray-600 hover:text-gray-800' 
+                            : 'text-purple-600 hover:text-purple-800'
+                        }`}
+                      >
+                        <span>
+                          {isExpanded ? 'View Less' : `View More (+${category.skills.length - 4})`}
+                        </span>
+                        {isExpanded ? (
+                          <ChevronUp size={16} className="group-hover:scale-110 transition-transform duration-300" />
+                        ) : (
+                          <ChevronDown size={16} className="group-hover:scale-110 transition-transform duration-300" />
+                        )}
+                      </span>
+                    </div>
+                  )}
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Additional Technologies */}
