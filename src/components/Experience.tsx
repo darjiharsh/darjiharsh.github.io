@@ -149,7 +149,7 @@ const Experience = () => {
                 </div>
 
                 {/* Timeline Year Badge */}
-                <div className={`hidden md:block absolute top-0 ${index % 2 === 0 ? 'right-0 mr-4' : 'left-0 ml-4'} transform ${index % 2 === 0 ? 'translate-x-full' : '-translate-x-full'}`}>
+                <div className={`hidden md:block absolute top-0 ${index % 2 === 0 ? 'right-0' : 'left-0'} ${index % 2 === 0 ? 'md:translate-x-0 lg:translate-x-4' : 'md:translate-x-0 lg:-translate-x-4'}`}>
                   <div className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
                     {exp.period.split(' - ')[0]}
                   </div>
