@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Github, ExternalLink, Star, Eye, Code, Zap, Users, X } from 'lucide-react';
+import { useState } from 'react';
+import { Github, ExternalLink, Eye, Code, Zap, Users, X } from 'lucide-react';
 
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState<any>(null);
@@ -8,6 +8,34 @@ const Projects = () => {
 
 
   const projects = [
+    {
+      title: 'Spinny - React Native App',
+      description: 'Production-quality React Native cross-platform mobile application featuring a dynamic 8-segment spin wheel with weighted random selection, real-time animations, and comprehensive Firebase backend integration.',
+      image: '/images/react-original.svg',
+      technologies: ['React Native', 'TypeScript', 'Expo', 'Zustand', 'Firestore', 'React Native SVG', 'Expo Linear Gradient', 'Custom Animations'],
+      github: 'https://github.com/darjiharsh/spinny',
+      demo: '#',
+      highlights: [
+        'Real-time Firebase backend with Firestore NoSQL database',
+        '60fps native animations using React Native SVG',
+        'Lightweight Zustand state management (2.5KB alternative to Redux)'
+      ],
+      longDescription: 'Spinny is a sophisticated React Native mobile application that delivers an engaging spin wheel experience with production-quality features. The app features a dynamic 8-segment spin wheel with intelligent client-side weighted random selection algorithms, ensuring fair and exciting gameplay. Built with TypeScript for type safety, the application leverages Firebase for real-time data synchronization, user authentication, and secure data validation through custom Firestore security rules. The UI/UX design includes beautiful gradient animations, animated reward popups, cooldown enforcement systems, and comprehensive spin history tracking with advanced filtering capabilities. The app uses Zustand for efficient state management, providing a lightweight 2.5KB alternative to Redux while maintaining optimal performance and component re-rendering. The modular architecture ensures clean separation of concerns, responsive design across multiple screen sizes, and seamless deployment for both iOS and Android platforms.',
+      challenges: [
+        'Implementing weighted random selection algorithms for fair gameplay',
+        'Creating smooth 60fps animations with React Native SVG',
+        'Building real-time data synchronization with Firebase Firestore',
+        'Optimizing state management for mobile performance',
+        'Ensuring cross-platform compatibility and responsive design'
+      ],
+      solutions: [
+        'Developed custom weighted random algorithms with mathematical precision',
+        'Used React Native SVG with optimized rendering for smooth animations',
+        'Implemented Firebase listeners with proper error handling and offline support',
+        'Chose Zustand over Redux for lightweight state management with TypeScript',
+        'Created modular component architecture with responsive design patterns'
+      ]
+    },
     {
       title: 'JSN GlowAlert',
       description: 'Advanced Magento 2 extension that replaces default notifications with beautiful SweetAlert2 animations. Features conditional JavaScript loading, multiselect admin configuration, and AJAX integration for seamless cart operations.',
@@ -160,7 +188,7 @@ const Projects = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 ">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {projects.map((project, index) => (
             <div 
               key={index} 
@@ -168,12 +196,12 @@ const Projects = () => {
               onClick={() => openModal(project)}
             >
               {/* Content Container */}
-              <div className="relative z-10 bg-white rounded-2xl h-full">
+              <div className="relative z-10 bg-white rounded-2xl h-full flex flex-col">
                 <div className="relative overflow-hidden">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-56 object-fill object-center group-hover:scale-110 transition-transform duration-700"
+                  className="w-full h-56 object-contain object-center group-hover:scale-110 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 
@@ -211,30 +239,36 @@ const Projects = () => {
                 </div>
               </div>
 
-              <div className="p-8">
+              {/* Content Section - Flex to fill remaining space */}
+              <div className="p-8 flex flex-col flex-grow">
                 <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-purple-700 transition-colors duration-300">{project.title}</h3>
 
-                <p className="text-gray-600 mb-6 leading-relaxed">{project.description}</p>
+                <p className="text-gray-600 mb-6 leading-relaxed line-clamp-3">{project.description}</p>
 
-                {/* Key Highlights */}
-                <div className="mb-6">
+                {/* Key Highlights - Fixed height */}
+                <div className="mb-6 flex-grow">
                   <h4 className="text-sm font-semibold text-gray-700 mb-3 flex items-center">
                     <Zap className="mr-2 text-purple-500" size={16} />
                     Key Features
                   </h4>
                   <ul className="space-y-2">
-                    {project.highlights.map((highlight, i) => (
+                    {project.highlights.slice(0, 3).map((highlight, i) => (
                       <li key={i} className="text-sm text-gray-600 flex items-start">
                         <div className="w-1.5 h-1.5 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                        {highlight}
+                        <span className="line-clamp-2">{highlight}</span>
                       </li>
                     ))}
+                    {project.highlights.length > 3 && (
+                      <li className="text-sm text-purple-600 font-medium">
+                        +{project.highlights.length - 3} more features
+                      </li>
+                    )}
                   </ul>
                 </div>
 
-                {/* Technologies */}
+                {/* Technologies - Fixed height */}
                 <div className="flex flex-wrap gap-2 mb-6">
-                  {project.technologies.map((tech, techIndex) => (
+                  {project.technologies.slice(0, 6).map((tech, techIndex) => (
                     <span
                       key={techIndex}
                       className="px-3 py-1.5 bg-gradient-to-r from-purple-100 to-pink-100 text-purple-700 text-xs font-medium rounded-full hover:from-purple-200 hover:to-pink-200 transition-all duration-300 transform hover:scale-105"
@@ -242,10 +276,15 @@ const Projects = () => {
                       {tech}
                     </span>
                   ))}
+                  {project.technologies.length > 6 && (
+                    <span className="px-3 py-1.5 bg-gradient-to-r from-gray-100 to-gray-200 text-gray-600 text-xs font-medium rounded-full">
+                      +{project.technologies.length - 6}
+                    </span>
+                  )}
                 </div>
 
-                {/* Action Buttons */}
-                <div className="flex space-x-4">
+                {/* Action Buttons - Fixed at bottom */}
+                <div className="flex space-x-4 mt-auto">
                   <a
                     href={project.github}
                     target="_blank"
@@ -322,7 +361,7 @@ const Projects = () => {
                   <img
                     src={selectedProject.image}
                     alt={selectedProject.title}
-                    className="w-full h-full object-fill"
+                    className="w-full h-full object-contain"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
                   <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6">
