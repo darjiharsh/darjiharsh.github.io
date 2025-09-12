@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { Github, ExternalLink, Eye, Code, Zap, Users, X } from 'lucide-react';
+import { useModal } from '../contexts/ModalContext';
 
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState<any>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { isModalOpen, setIsModalOpen } = useModal();
 
 
 

@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { Briefcase, Calendar, MapPin, X, Eye } from 'lucide-react';
+import { useModal } from '../contexts/ModalContext';
 
 const Experience = () => {
   const [selectedExperience, setSelectedExperience] = useState<any>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { isModalOpen, setIsModalOpen } = useModal();
 
   const openModal = (exp: any) => {
     setSelectedExperience(exp);

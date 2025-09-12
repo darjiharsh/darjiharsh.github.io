@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Heart, ArrowUp } from 'lucide-react';
+import { useModal } from '../contexts/ModalContext';
 
 const Footer = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const { isModalOpen } = useModal();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -97,7 +99,7 @@ const Footer = () => {
       </div>
 
       {/* Floating Scroll to Top Button - Mobile Only */}
-      {showScrollTop && (
+      {showScrollTop && !isModalOpen && (
         <div className="md:hidden fixed bottom-6 right-6 z-50 animate-fade-in">
           <button
             onClick={scrollToTop}

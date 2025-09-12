@@ -8,20 +8,23 @@ import Education from './components/Education';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import { ModalProvider } from './contexts/ModalContext';
 
 function App() {
   return (
-    <div className="min-h-screen">
-      <Navbar />
-      <Hero />
-      <About />
-      <Experience />
-      <Skills />
-      <Education />
-      <Projects />
-      <Contact />
-      <Footer />
-    </div>
+    <ModalProvider>
+      <div className="min-h-screen">
+        <Navbar />
+        <Hero />
+        <About />
+        <Experience />
+        <Skills />
+        <Education />
+        <Projects />
+        <Contact />
+        <Footer />
+      </div>
+    </ModalProvider>
   );
 }
 
